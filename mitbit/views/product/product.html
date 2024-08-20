@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+        <div id=home class=home> 
+        <a href="/product"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+        
+        <div class=mid>
+        <h>New Product</h>
+        </div>
+        </div>
+        
+        <form action="/product" method="post">
+        
+        <input type="hidden" name="ID">
+
+        <input type="hidden" name="userID">
+        
+        <div class=block>
+        <h>Product</h> 
+        <input id=productinpt class=newinpt name="product" type="text" required>
+        <div id=error class=error>
+        <p>This field is required</p>
+        </div>
+        </div>
+          
+        <div class=block>
+        <h>Description</h> 
+        <input id=description class=newinpt name="description" type="text" required>
+        </div> 
+        
+        <div class=block>
+        <h>Price</h>
+        <input id=price class=newinpt name="price" type="text" required>
+        <input id="btcinpt" class="btcinpt" type="text" placeholder="0.00 BTC" disabled>
+        </div>
+        
+        <button id=newproductbtn class=newbtn type=submit>+</button>
+        </form>
+
+<script>
+// BTC
+const shippinginpt = document.getElementById("shippinginpt");
+const shipbtc = document.getElementById("shipbtc")
+
+shippinginpt.addEventListener("input", function(){
+fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+  .then(function(res){
+    return res.json()
+  })
+  .then(function(data){
+    shipbtc.innerText = data.bpi.BTC.rate + ' BTC';
+  });
+  
+});
+
+</script>
+
+</body>
+
+</html>

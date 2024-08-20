@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+  <div id="bill" class="bill" method="post" action="/bill">
+    <div id=home class=home> 
+      <button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+      </div>
+      
+      <div class=bll>
+        <div class=block>
+            <input class=bllinpt type="hidden" name="userID" value="<%- userID %>" disabled></br>
+            <li>
+              <h>Order number</h><input class="bllinpt" type="text" name="ID" value="<%- billID %>" disabled>
+            </li>
+        </div>
+        </div>
+  
+        <div class=bll>
+        <div class=block>
+          <h>Customer</h></br>
+          <li>
+          <input class=bllinpt type="text" name="customer" value="<%- customer %>" disabled></br>
+          </li></br>
+          <a href="/customerl"><button class=bllbtn>new Customer +</button></a>
+        </div>
+        </div>
+        
+        <div class=bll>
+        <div class=block>
+          <h>Items</h></br>
+          <% for (var result of result) { %>
+            <li>
+              <input class="bllinpt" type="text" name="product" value="<%- result.product %>" disabled>
+              <input class="right" type="text" name="num" value="<%- result.price %>" disabled>
+              <h>qty</h>
+              <input type="text" name="qty" value="<%- result.qty %>">
+            </li></br>
+          <% } %>     
+          <a href="/product"><button class=bllbtn>new Item +</button></a>
+        </div>
+        </div>
+          
+        <div class=bll>
+          <div class=block>
+            <li>
+            <h class="bllinpt">Shipping</h>
+            <input id=shippingbll class="right" name="shipping" type="text" value="<%- result.shipping %>">
+            </li></br>
+            <button id=shippingbtn class=bllbtn>Shipping +</button>
+          </div>
+          
+          <div class=block>
+            <li>
+            <h class="bllinpt">Discount %</h>
+            <input id=discountbll class="right" name="discount" type="text" value="<%- result.discount %>">
+            </li></br>
+            <button id=discountbtn class=bllbtn>Discount +</button>
+          </div>
+            
+          <div class=block>
+            <li>
+            <h class="bllinpt">Price</h>
+            <input id=sum class="right" name="sum" type="text" placeholder="0.00" disabled>
+            </li>
+            <input id=sub class=sub type="hidden" disabled>
+          </div>
+          </div>
+  
+        <a href="/pdf"><button id="pdfbtn" class="pdfbtn">View Bill</button></a>
+  
+        <a href="/qr"><button id="billbtn" class="newbtn">+</button></a>
+
+        </div>
+  
+   <div id=shipping class=shipping>
+      <div id=home class=home> 
+      <button id=preshipbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+      
+      <div class=mid>
+      <h>Shipping</h>
+      </div>
+      </div>
+      
+      <input id=shippinginpt class=shippinginpt type="text" placeholder="0.00">
+      <input id="shipbtc" class="shipinpt" type="text" placeholder="0.00 BTC" disabled>
+      
+      <button id=shipbtn class=newbtn>+</button>
+   </div>
+        
+  <div id=discount class=discount>
+      <div id=home class=home> 
+      <button id=predisbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+      
+      <div class=mid>
+      <h>Discount</h>
+      </div>
+      </div>
+      
+      <input id=discountinpt class=shippinginpt type="text" placeholder="0.00 %">
+        
+      <button id=disbtn class=newbtn>+</button>  
+  </div>
+  
+  <div id="dlbll" class="dlbll">
+    <h>Bill</h>
+    <a href="/dlbll"><button class="bllbtn">Y</button></a>
+    <button id="dlbtn" class="bllbtn">N</button>
+  </div>
+  
+  </body>
+
+<script>
+
+// Button
+const prebtn = document.getElementById('prebtn');
+const dlbll = document.getElementById('dlbll');
+
+prebtn.addEventListener("click", function(event) {
+
+   if (dlbll.style.display = "none") {
+       dlbll.style.display = "block";
+ } else {
+       dlbll.style.display = "none";
+ }
+}); 
+
+const dlbtn = document.getElementById('dlbtn');
+
+dlbtn.addEventListener("click", function(event) {
+
+if (dlbll.style.display = "block") {
+    dlbll.style.display = "none";
+} else {
+    dlbll.style.display = "block";
+}
+});
+
+// Shipping
+const shippingbtn = document.getElementById("shippingbtn");
+
+shippingbtn.addEventListener("click", function (event) {
+  
+const shipping = document.getElementById("shipping");
+const bill = document.getElementById("bill");
+
+if (shipping.style.display = "none") {
+    shipping.style.display = "block";
+    bill.style.display = "none";
+} else {
+    shipping.style.display = "none";
+    bill.style.display = "block";
+ }
+});
+
+const shipbtn = document.getElementById("shipbtn");
+
+shipbtn.addEventListener("click", function(event) {
+  
+const shipping = document.getElementById("shipping");
+const bill = document.getElementById("bill");
+
+if (shipping.style.display = "block") {
+    shipping.style.display = "none";
+    bill.style.display = "block";
+} else {
+    shipping.style.display = "block";
+    bill.style.display = "none";
+ }                            
+});
+
+// Discount
+const discountbtn = document.getElementById("discountbtn");
+
+discountbtn.addEventListener("click", function (event) {
+  
+const discount = document.getElementById("discount");
+const bill = document.getElementById("bill");
+
+if (discount.style.display = "none") {
+    discount.style.display = "block";
+    bill.style.display = "none";
+} else {
+    discount.style.display = "none";
+    bill.style.display = "block";
+ }                            
+});
+
+const disbtn = document.getElementById('disbtn');
+
+disbtn.addEventListener("click", function(event) {
+
+const discount = document.getElementById("discount");
+const bill = document.getElementById("bill");
+
+if (discount.style.display = "block") {
+    discount.style.display = "none";
+    bill.style.display = "block";
+} else {
+    discount.style.display = "block";
+    bill.style.display = "none";
+ }
+});
+
+const preshipbtn = document.getElementById('preshipbtn');
+
+preshipbtn.addEventListener("click", function (event) {
+
+const shipping = document.getElementById("shipping");
+const discount = document.getElementById("discount");
+const bill = document.getElementById("bill");
+
+if (bill.style.display = "none") {
+    discount.style.display = "none";
+    shipping.style.display = "none"
+    bill.style.display = "block";
+ }
+});
+
+const presdisbtn = document.getElementById('predisbtn');
+
+predisbtn.addEventListener("click", function (event) {
+
+const shipping = document.getElementById("shipping");
+const discount = document.getElementById("discount");
+const bill = document.getElementById("bill");
+
+if (bill.style.display = "none") {
+    discount.style.display = "none";
+    shipping.style.display = "none"
+    bill.style.display = "block";
+ }
+});
+
+// BTC
+const shipbtc = document.getElementById("shipbtc")
+
+shippinginpt.addEventListener("input", function() {
+fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+
+  .then(function(res){
+    return res.json()
+  })
+
+  .then(function(result){
+     
+    const shippinginpt = document.getElementById('shippinginpt').value || 0;
+    const btc = result.bpi.EUR.rate || 0;
+    const ship = parseInt(btc) * parseInt(shippinginpt);
+
+    shipbtc.value = ship;
+  })
+});
+
+// Sum
+window.addEventListener("load", function(event) {
+ var li = document.getElementsByName('num');
+ var discount = document.getElementById("discountbll").value;
+ var shipping = document.getElementById("shippingbll").value;
+ var sub = 0;
+
+
+ for (var i = 0; i < li.length; i++) {
+   if (parseInt(li[i].value))
+     sub += parseInt(li[i].value);
+ }
+
+ document.getElementById("sub").value = sub.toFixed(2);
+ document.getElementById('sum').value = (sub * ((100-discount) / 100) + +shipping).toFixed(2);
+});
+
+// Discount
+disbtn.addEventListener("click", function (event) {
+
+var num = Number(document.getElementById("sub").value);
+var discount = Number(document.getElementById("discountinpt").value);
+var shipping = Number(document.getElementById("shippinginpt").value);
+
+var sum = num * ((100-discount) / 100) + +shipping;
+
+document.getElementById("sub").value = sum.toFixed(2);
+document.getElementById("sum").value = sum.toFixed(2);
+document.getElementById("discountbll").value = discount.toFixed(2);
+});
+
+// Shipping
+shipbtn.addEventListener("click", function (event) {
+
+var sub = Number(document.getElementById("sub").value);
+var shipping = Number(document.getElementById("shippinginpt").value);
+
+var sum = +sub + +shipping;
+
+document.getElementById("sum").value = sum.toFixed(2);
+document.getElementById("shippingbll").value = shipping.toFixed(2);
+});
+
+</script>
+
+</html>

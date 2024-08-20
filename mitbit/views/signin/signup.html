@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/signin.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+
+  <div id=home class=home> 
+    <a href="/"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  </div>
+
+  <div id=subgrid class=subgrid>
+  
+  <form method="post" action="/signup">
+    <h1>Sign Up</h1>
+
+    <div id="sign" class="sign">
+    <input id=business class=input type="text" name="userID" placeholder="Your business" required></br>
+    <button id=signbtn class=signupbtn>Continue</button></br>
+    </div>
+    
+    <div id="signup" class="signup">
+    <input id=input class=input type="text" name="email" placeholder="Your Email" required></br>
+    <input id=password type="password" name="password" placeholder="Password" required></br>
+    </div>
+    
+    <button id=signupbtn class=signinbtn type=submit>Sign Up</button>
+  </form>
+
+  </div>
+
+</body>
+
+<script>
+
+const signbtn = document.getElementById("signbtn")
+
+signbtn.addEventListener("click", function(event) {
+  var sign = document.getElementById("sign")
+  var signup = document.getElementById("signup");
+  if (signup.style.display = "none") {
+      signup.style.display = "block";
+      sign.style.display = "none";
+  } else {
+      sign.style.display = "block";
+      signup.style.display = "none";
+  }
+});
+</script>
+
+</html>

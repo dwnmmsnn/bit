@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/billing.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+
+    <div class=grid>
+    <div class=item1>
+    <div id=qr class=qr> 
+    <a href="/bill1"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+    
+    <form action="/bill" method="post">
+    
+    <button id="bill" class="rightbtn" type="submit">Bill</button>
+    </div>
+    </div>
+
+    <div id=subgrid class=subgrid>
+
+    <input id=sum class=sum type=text name="sum" placeholder="0.00" value="<%- sum %>">
+    <input id=btc class="input" type="hidden" name="btc" value="">
+
+    <div id=btn class=btn>
+    <button id=btcbtn class=signinbtn>Bitcoin</button>
+    <button id=lightningbtn class=signupbtn>Lightning</button>
+    </div>
+        
+    <img src="<%- img %>" class="img">
+
+    <div id=inpt class=inpt>
+      <p>Bitcoin Address</p>
+      <button id=copy class=lightbtn>Copy</button>
+      <input id=address class=input type=text name="address" value="<%- address %>">
+    </div>
+        
+    <div id=inpt class=inpt>
+      <p>Refund Address</p>
+      <input id=refund class=input type=text name="refund" value="">
+    </div>
+  </form>
+
+    </div>
+    </div>
+    </div>
+        
+</body>
+
+<script>
+
+// copy button
+const copy = document.getElementById("copy")
+
+copy.addEventListener("click", Copy)
+
+function Copy() {
+const copy = document.getElementById("btc");
+
+copy.select();
+copy.setSelectionRange(0, 99999);
+  
+navigator.clipboard.writeText(copy.value)
+};
+
+const lightningbtn = document.getElementById("lightningbtn");
+
+lightningbtn.addEventListener("click", function(event) {
+  
+const btcbtn = document.getElementById("btcbtn");
+const lightningbtn = document.getElementById("lightningbtn");
+  
+if (lightningbtn.className = "signinbtn") {  
+    lightningbtn.className = "signupbtn";
+    btcbtn.className = "signinbtn";
+} else {
+    lightningbtn.className = "signinbtn";
+    btcbtn.className = "signupbtn";
+  }
+});
+</script>
+        
+</html>
+

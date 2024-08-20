@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+  <div id="bill" class="bill">
+    <div id=home class=home> 
+      <button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+      </div>
+
+      <div class=bll>
+        <div class=block>
+          <li>
+          <h class="bllinpt">Order number</h><input class="bllinpt" name="billID" type="text" value="<%- billID %>" disabled>
+          </li>
+          <input class=bllinpt type="hidden" name="userID" value="<%- userID %>" disabled>
+        </div>
+      </div>
+
+      <div class=bll>
+      <div class=block>
+        <h>Customer</h></br>
+        <li>
+          <input class=bllinpt type="text" name="customer" value="<%- customer %>" disabled>
+        </li></br>
+        <a href="/customerl"><button class=bllbtn>new Customer +</button></a>
+      </div>
+      </div>
+      
+      <div class=bll>
+      <div class=block>
+        <li>
+        <h>Items</h>
+        </li></br>
+        <a href="/product"><button class=bllbtn>new Item +</button></a>
+      </div>
+      </div>
+        
+      <div class=bll>
+        <div id=shippingbll class=block>
+          <li>
+            <h class="bllinpt">Shipping</h>
+            <input id=shippingbll class=right name="shipping" type="text" placeholder="0.00" disabled>
+          </li></br>
+          <button id=shippingbtn class=bllbtn>Shipping +</button>
+        </div>
+        
+        <div class=block>
+          <li>
+            <h class="bllinpt">Discount %</h>
+            <input id=discountbll class=right name="discount" type="text" placeholder="0.00" disabled>
+          </li></br>
+        <button id=discountbtn class=bllbtn>Discount +</button>
+      </div>
+          
+        <div class=block>
+          <li>
+          <h class="bllinpt">Price</h>
+          <input id=sub class=sub type="hidden" disabled>
+          </li>
+          <input id=sum class=right name="sum" type="text" placeholder="0.00" disabled>
+        </div>
+        </div>
+
+      <a href="/pdf"><button class="pdfbtn">View Bill</button></a>
+
+      <a href="/qr"><button id="billbtn" class="newbtn">+</button></a>
+     </div>
+
+ <div id=shipping class=shipping>
+    <div id=home class=home> 
+    <button id=preshipbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+    
+    <div class=mid>
+    <h>Shipping</h>
+    </div>
+    </div>
+    
+    <input id=shippinginpt class=shippinginpt type="text" placeholder="0.00">
+    <input id="shipbtc" class="shipinpt" type="text" placeholder="0.00 BTC" disabled>
+    
+    <button id=shipbtn class=newbtn>+</button>
+</div>
+      
+<div id=discount class=discount>
+    <div id=home class=home> 
+    <button id=predisbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+    
+    <div class=mid>
+    <h>Discount</h>
+    </div>
+    </div>
+    
+    <input id=discountinpt class=shippinginpt type="text" placeholder="0.00 %">
+      
+    <button id=disbtn class=newbtn>+</button>  
+</div>
+
+<div id="dlbll" class="dlbll">
+  <h>Bill</h>
+  <a href="/dlbll"><button class="bllbtn">Y</button></a>
+  <button id="dlbtn" class="bllbtn">N</button>
+</div>
+
+</body>
+
+<script>
+
+// Button
+const prebtn = document.getElementById('prebtn');
+const dlbll = document.getElementById('dlbll');
+
+prebtn.addEventListener("click", function(event) {
+
+   if (dlbll.style.display = "none") {
+       dlbll.style.display = "block";
+ } else {
+       dlbll.style.display = "none";
+ }
+}); 
+
+const dlbtn = document.getElementById('dlbtn');
+
+dlbtn.addEventListener("click", function(event) {
+
+if (dlbll.style.display = "block") {
+    dlbll.style.display = "none";
+} else {
+    dlbll.style.display = "block";
+}
+});
+
+</script>
+
+</html>

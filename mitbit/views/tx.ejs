@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+  <div class=grid>
+  <div id=home class=home>
+  </div>
+      
+    <a href="/home"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  
+      <h1 id=sum class=sum><%- result.sum %></h1>
+      <h id=customer><%- result.customer %></h></br></br>
+  
+      <% for (var product of product) { %>
+      <li><h id=product><%- product.product %></h><h class="right"><%- product.grossprice %></h></li></br>
+      <% } %></br></br>
+    
+    <li><h>Shipping</h><h class="right"><%- result.shipping %></h></li></br></br>
+    <li><h>Discount</h><h class="right"><%- result.discount %></h></li></br></br>
+    
+    <h>Confirmed</h></br></br>
+    <a href="/pdf"><button id=pdfbtn class=pdfbtn>View Bll</button></a>
+
+    </div>
+   
+</body>
+    
+</html>

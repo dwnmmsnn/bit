@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+        <div id=home class=home> 
+        <a href="/product"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+        
+        <div class=mid>
+        <h>New Product</h>
+        </div>
+        </div>
+        
+        <form action="/product" method="post">
+        
+        <input type="hidden" id="ID" name="ID" value="<%- ID %>">
+
+        <input type="hidden" id="userID" name="userID" value="<%- userID %>">
+
+        <div class=block>
+        <h>Product</h> 
+        <% if(locals.product) { %>
+        <input id=productinpt class=newinpt name="product" type="text" value="<%- product %>" required>
+        <% } else { %>
+        <input id=productinpt class=newinpt name="product" type="text" value="" required>
+        <% } %>
+        <div id=error class=error>
+        <p>This field is required</p>
+        </div>
+        </div>
+          
+        <div class=block>
+        <h>Description</h> 
+        <% if(locals.description) { %>
+        <input id=description class=newinpt name="description" type="text" value="<%- description %>" required>
+        <% } else { %>
+        <input id=description class=newinpt name="description" type="text" value="" required>
+        <% } %>
+        </div> 
+        
+        <div class=block>
+        <h>Price</h>
+        <% if(locals.price) { %>
+        <input id=price class=newinpt name="price" type="text" value="<%- price %>" required>
+        <% } else { %>
+        <input id=price class=newinpt name="price" type="text" value="" required>
+        <input id="btcinpt" class="btcinpt" type="text" placeholder="0.00 BTC" disabled>
+        <% } %>
+        </div>
+        
+        <button id=newproductbtn class=newbtn type=submit>+</button>
+        </form>
+
+</body>
+
+</html>

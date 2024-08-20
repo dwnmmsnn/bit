@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/home.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+
+<div class=grid>
+<div class=item1>
+<div id=home class=home>
+</div>
+</div>
+  
+<div class=item2>
+<div id=subgrid class=subgrid>
+<div id=profile class=profile>
+<a href="/home"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+
+<h1></h1>
+  
+<div id=filterdiv class=filterdiv>
+<button id=filterbtn class=filterbtn><img src=https://www.systemuicons.com/images/icons/search.svg></button>
+<input type=text id=filter class=filter>
+</div>
+
+<div id=filtermonth class=filtermonth>
+<button id="month" class=month>Januar</button>
+<button id="month" class=month>Februar</button>
+<button id="month" class=month>March</button>
+<button id="month" class=month>April</button>
+<button id="month" class=month>May</button>
+<button id="month" class=month>June</button>
+<button id="month" class=month>July</button>
+<button id="month" class=month>August</button>
+<button id="month" class=month>September</button>
+<button id="month" class=month>October</button>
+<button id="month" class=month>November</button>
+<button id="month" class=month>December</button>
+</div>
+
+ <ul id=itemlist class=itemlist>
+  <% for (var result of result) { %>
+    <form action="/tx0" method="post">
+      <button type="submit" class="itemlistbtn">
+          <div class="div">
+            <li><h class="bllinpt"><%- result.customer %></h><h class="right"><%- result.sum %></h></li>
+          </div>
+        <input type="hidden" name="customer" value="<%- result.customer %>">
+        <input id="bill" class="right" type="hidden" name="sum" value="<%- result.sum %>">
+        <input type="hidden" name="userID" value="<%- result.userID %>">
+        <input type="hidden" name="billID" value="<%- result.ID %>">
+      </button>
+     </form>
+  <% } %>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+
+</body>
+
+<script>
+
+// filter bll li
+document.getElementById("filter").addEventListener("input", function (event) {
+
+const filteritem = event.target.value.toLowerCase();
+const itemlist = document.querySelectorAll("#itemlist li");
+  
+itemlist.forEach(function(item)  {
+  
+const itemText = item.textContent.toLowerCase();
+  
+if (itemText.includes(filteritem)) {
+    item.style.display = "list-item";  
+} else { 
+    item.style.display = "none";
+   }
+  });
+});
+
+// filter month
+const btn = document.querySelectorAll(".month");
+
+btn.forEach((btn) => {
+btn.addEventListener("click", function (event) {
+
+const filteritem = event.target.value.toLowerCase();
+const itemlist = document.querySelectorAll("#itemlist li");
+  
+itemlist.forEach(function(item)  {
+  
+const itemText = item.textContent.toLowerCase();
+const month = document.getElementById("month");
+  
+if (itemText.includes(month.innerHTML)) {
+    item.style.display = "list-item";
+} else {
+    item.style.display = "none";
+   }
+   });
+ });
+});
+</script>
+
+</html>

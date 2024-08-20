@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/signin.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+
+  <div id=home class=home> 
+    <a href="/"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  </div>
+
+  <div id=subgrid class=subgrid>
+
+        <h1>Sign In</h1>
+
+          <form id="signin" method="post" action="/signin">
+          <div id=inpt class=inpt>
+            <input type="text" name="userID" placeholder="Email" required>
+            <button id=lightbtn class=lightbtn>View</button>
+            <input id=password type="password" name="password" placeholder="Password" required>
+          </div>
+
+          <button id=signinbtn class=signinbtn type=submit>Sign In</button>
+        </form>
+
+  </div>
+
+</body>
+
+<script>
+
+// show or hide Button
+const lightbtn = document.getElementById("lightbtn")
+
+lightbtn.addEventListener("click", function(event) {
+  var password = document.getElementById("password")
+  var lightbtn = document.getElementById("lightbtn");
+  if (password.type === "password") {
+      password.type = "text", 
+      lightbtn.innerHTML = "Hide" ;
+  } else {
+      password.type = "password", 
+      lightbtn.innerHTML = "View";
+  }
+});
+
+</script>
+
+</html>

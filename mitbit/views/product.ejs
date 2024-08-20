@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+
+    <div id=product class=product>
+        <div id=home class=home> 
+        <a href="/bill1"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+          
+        <a href="/product0"><button id=rightproduct0btn class=rightbtn>+</button></a>
+        
+        <div class=mid>
+        <h>Product</h>
+        </div>
+        </div>
+        
+        <div id=filterdiv class=filterdiv>
+        <button id=filterbtn class=filterbtn><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
+        <input type=text id=filter class=filter>
+        </div>
+          
+        <a href="/product0"><button id=product0btn class=inptbtn>+ new Item</button></a>
+         
+        <ul id=itemlist class=itemlist>
+           <% for (var result of result) { %>
+              <li>
+                <form method="post" action="/productli">
+                <div class="div">
+                <input type="hidden" name="product" value="<%- (result.product + ' ' + result.price) %>">
+                <input class="bllinpt" type="text" name="item" value="<%- result.product %>">
+                <input class="right" type="text" name="price" value="<%- result.price %>">
+                <input class="bllinpt" type="text" name="qty" value="1" min="1">
+                <input type="hidden" name="productID" value="<%- result.ID %>">
+                <input type="hidden" name="billID" value="<%- billID %>">
+                <input class="bllbtn" type="submit" value="Select">
+                </div>
+                </form>
+              </li>
+            <% } %>
+        </ul>
+        </div>
+
+</body>
+
+<script>
+
+// qty
+document.getElementsByName("qty").addEventListener("input", function (event) {
+
+  const qty = document.getElementsByName("qty").value;
+  const sub = document.getElementsByName("price").value;
+
+  const price = qty * sub;
+
+  document.getElementsByName("price").value = price;
+});
+
+
+// filter bll li
+document.getElementById("filter").addEventListener("input", function (event) {
+
+const filteritem = event.target.value.toLowerCase();
+const itemlist = document.querySelectorAll("#itemlist li");
+  
+itemlist.forEach(function(item)  {
+  
+const itemText = item.textContent.toLowerCase();
+  
+if (itemText.includes(filteritem)) {
+    item.style.display = "list-item";
+    
+} else { 
+    item.style.display = "none";
+   }
+  })
+});
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bill.css">
+  <title>Node.js HTML CSS Server</title>
+</head>
+
+<body>
+  <div id=home class=home> 
+  <a href="/user"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  </div>
+
+<h1>Import your Extented Public Key (xpub)</h1>
+
+<div class="bill">
+<form action="/xpub" method="post">
+    <h></h>
+    <input id="userID" type="hidden" name="userID" value="<%- userID %>" required>
+    <input id="xpub" type="text" name="xpub" placeholder="xpub" required><button class="bllbtn" type="submit">Import</button>
+</form>
+</div>
+
+</body>
+
+</html>
