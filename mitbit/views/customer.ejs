@@ -10,36 +10,37 @@
 
 <body>
 
-    <div id=customer class=customer>
-        <div id=home class=home> 
-        <a href="/bill0"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+    <div id="customer" class="customer">
+        <div id="home" class="home"> 
+        <a href="/bill0"><button class="prebtn"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button></a>
           
-        <a href="/customer0"><button id=rightcustomer0btn class=rightbtn>+</button></a>
+        <a href="/customer0"><button class="rightbtn">+</button></a>
         
-        <div class=mid>
+        <div class="mid">
         <h>Customer</h>
         </div>
         </div>
         
-        <div id=filterdiv class=filterdiv>
-        <button id=filterbtn class=filterbtn><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
-        <input type=text id=filter class=filter>
+        <div id="filterdiv" class="filterdiv">
+        <button id="filterbtn" class="filterbtn"><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
+        <input id="filter" class="filter" type="text">
         </div>
-          
-    <a href="/customer0"><button id=customer0btn class=inptbtn>+ new Customer</button></a>
-
-    <ul>
-      <% for (var result of result) { %>
-        <li>
-          <form action="/customerl" method="post">
-            <input class="bllinpt" name="customer" type="text" value="<%- (result.fname + ' ' + result.lname) %>">
-            <input name="customerID" type="hidden" value="<%- result.ID %>">
-            <input name="billID" type="hidden" value="<%- billID %>">
-            <input class="bllbtn" name="submit" type="submit" value="Select"> 
-          </form>
-        </li>
-      <% } %>
-    </ul>
+        
+        <a href="/customer0"><button class="inptbtn">+ new Customer</button></a>
+        
+        <div class="itemlist">
+          <% for (var result of result) { %>
+            <li>
+              <form action="/customerl" method="post">
+               <button class="hidbtn" type="submit">
+                <input class="bllinpt" name="customer" type="text" value="<%- (result.fname + ' ' + result.lname) %>"></br></br>
+                <input name="customerID" type="hidden" value="<%- result.ID %>">
+                <input name="billID" type="hidden" value="<%- billID %>">
+               </button>
+              </form>
+            </li>
+          <% } %>
+        </div>
     
 </body>
 

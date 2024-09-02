@@ -9,113 +9,111 @@
 </head>
 
 <body>
-  <div id="bill" class="bill" method="post" action="/bill">
-    <div id=home class=home> 
-      <button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
-      </div>
+    <div id="home" class="home"> 
+      <button id="prebtn" class="prebtn" type="button"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button>
+    </div>
+
+      <form id="bill" class="bill" action="/billing" method="post">
       
-      <div class=bll>
-        <div class=block>
-            <input class=bllinpt type="hidden" name="userID" value="<%- userID %>" disabled></br>
+        <div class="bll">
+          <div class="block">
             <li>
-              <h>Order number</h><input class="bllinpt" type="text" name="ID" value="<%- billID %>" disabled>
+            <h class="bllinpt">Order number</h><input class="blll" name="billID" type="text" value="<%- billID %>" disabled>
             </li>
-        </div>
-        </div>
+            <input class="bllinpt" type="hidden" name="userID" value="<%- userID %>" disabled>
+          </div>
+        </div>   
   
-        <div class=bll>
-        <div class=block>
-          <h>Customer</h></br>
-          <li>
-          <input class=bllinpt type="text" name="customer" value="<%- customer %>" disabled></br>
-          </li></br>
-          <a href="/customerl"><button class=bllbtn>new Customer +</button></a>
-        </div>
+        <div class="bll">
+          <div class="block">
+            <h>Customer</h></br>
+            <li>
+              <input class="bllinpt" type="text" name="customer" value="<%- customer %>" disabled></br>
+            </li></br>
+            <a href="/customerl"><button class="bllbtn" type="button">new Customer +</button></a>
+          </div>
         </div>
         
-        <div class=bll>
-        <div class=block>
-          <h>Items</h></br>
-          <% for (var result of result) { %>
-            <li>
-              <input class="bllinpt" type="text" name="product" value="<%- result.product %>" disabled>
-              <input class="right" type="text" name="num" value="<%- result.price %>" disabled>
-              <h>qty</h>
-              <input type="text" name="qty" value="<%- result.qty %>">
-            </li></br>
-          <% } %>     
-          <a href="/product"><button class=bllbtn>new Item +</button></a>
-        </div>
-        </div>
-          
-        <div class=bll>
-          <div class=block>
-            <li>
-            <h class="bllinpt">Shipping</h>
-            <input id=shippingbll class="right" name="shipping" type="text" value="<%- result.shipping %>">
-            </li></br>
-            <button id=shippingbtn class=bllbtn>Shipping +</button>
+        <div class="bll">
+          <div class="block">
+            <h>Items</h></br>
+            <% for (var result of result) { %>
+              <li>
+                <input class="qty" type="text" name="qty" value="qty <%- result.qty %>"></br></br>
+                <input class="bllinpt" type="text" name="product" value="<%- result.product %>" disabled><input class="right" type="text" name="num" value="<%- result.price %> BTC" disabled>
+              </li></br>
+              <% } %>
+              <a href="/product"><button class="bllbtn"" type="button">new Item +</button></a>
+            </div>
           </div>
           
-          <div class=block>
+        <div class="bll">
+          <div class="block">
             <li>
-            <h class="bllinpt">Discount %</h>
-            <input id=discountbll class="right" name="discount" type="text" value="<%- result.discount %>">
+              <h class="bllinpt">Shipping</h>
+              <input id="shippingbll" class="right" name="shipping" type="text" placeholder="<%- result.shipping %>">
             </li></br>
-            <button id=discountbtn class=bllbtn>Discount +</button>
+            <button id="shippingbtn" class="bllbtn" type="button">Shipping +</button>
+          </div>
+          
+          <div class="block">
+            <li>
+              <h class="bllinpt">Discount %</h>
+              <input id="discountbll" class="right" name="discount" type="text" placeholder="<%- result.discount %>">
+            </li></br>
+            <button id="discountbtn" class="bllbtn" type="button">Discount +</button>
           </div>
             
-          <div class=block>
+          <div class="block">
             <li>
-            <h class="bllinpt">Price</h>
-            <input id=sum class="right" name="sum" type="text" placeholder="0.00" disabled>
+              <h class="bllinpt">Price</h>
+              <input id="sum" class="right" name="sum" type="text" placeholder="0.00">
             </li>
-            <input id=sub class=sub type="hidden" disabled>
+            <input id="sub" class="sub" type="hidden" disabled>
           </div>
-          </div>
-  
-        <a href="/pdf"><button id="pdfbtn" class="pdfbtn">View Bill</button></a>
-  
-        <a href="/qr"><button id="billbtn" class="newbtn">+</button></a>
-
         </div>
   
-   <div id=shipping class=shipping>
-      <div id=home class=home> 
-      <button id=preshipbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
-      
-      <div class=mid>
-      <h>Shipping</h>
-      </div>
-      </div>
-      
-      <input id=shippinginpt class=shippinginpt type="text" placeholder="0.00">
-      <input id="shipbtc" class="shipinpt" type="text" placeholder="0.00 BTC" disabled>
-      
-      <button id=shipbtn class=newbtn>+</button>
-   </div>
-        
-  <div id=discount class=discount>
-      <div id=home class=home> 
-      <button id=predisbtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
-      
-      <div class=mid>
-      <h>Discount</h>
-      </div>
-      </div>
-      
-      <input id=discountinpt class=shippinginpt type="text" placeholder="0.00 %">
-        
-      <button id=disbtn class=newbtn>+</button>  
-  </div>
+        <a href="/pdf"><button id="pdfbtn" class="pdfbtn" type="button">View Bill</button></a>
   
-  <div id="dlbll" class="dlbll">
-    <h>Bill</h>
-    <a href="/dlbll"><button class="bllbtn">Y</button></a>
-    <button id="dlbtn" class="bllbtn">N</button>
-  </div>
+        <button id="billbtn" class="newbtn" type="submit">+</button>
+      </form>
   
-  </body>
+      <div id="shipping" class="shipping">
+        <div id="home" class="home">
+          <button id="preshipbtn" class="prebtn" type="button"><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button>
+      
+          <div class="mid">
+            <h>Shipping</h>
+          </div>
+        </div>
+      
+        <input id="shippinginpt" class="shippinginpt" type="text" placeholder="0.00">
+        <input id="shipbtc" class="shipinpt" type="text" placeholder="0.00 BTC" disabled>
+      
+        <button id="shipbtn" class="newbtn" type="button">+</button>
+      </div>
+        
+      <div id="discount" class="discount">
+        <div id="home" class="home">
+          <button id="predisbtn" class="prebtn" type="button"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button>
+      
+          <div class="mid">
+            <h>Discount</h>
+          </div>
+        </div>
+      
+        <input id="discountinpt" class="shippinginpt" type="text" placeholder="0.00 %">
+        
+        <button id="disbtn" class="newbtn" type="button">+</button>  
+      </div>
+
+      <div id="dlbll" class="dlbll">
+        <h>Bill</h>
+        <a href="/dlbll"><button class="bllbtn" type="button">Y</button></a>
+        <button id="dlbtn" class="bllbtn" type="button">N</button>
+      </div>
+  
+</body>
 
 <script>
 

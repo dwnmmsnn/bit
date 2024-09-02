@@ -9,19 +9,18 @@
 </head>
 
 <body>
-  <div id=home class=home> 
-  <a href="/user"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  <div id="home" class="home"> 
+    <a href="/user"><button class="prebtn"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button></a>
   </div>
 
-<h1>Import your Extented Public Key (xpub)</h1>
-
-<div class="bill">
-<form action="/xpub" method="post">
-    <h></h>
-    <input id="userID" type="hidden" name="userID" value="<%- userID %>" required>
-    <input id="xpub" type="text" name="xpub" placeholder="xpub" required><button class="bllbtn" type="submit">Import</button>
-</form>
-</div>
+    <div class="bill">
+      <h class="bllinpt">Import your Extented Public Key (xpub)</h></br></br>
+      <form action="/xpub" method="post">
+        <h></h>
+        <input type="hidden" name="userID" value="<%- userID %>" required>
+        <input type="text" name="xpub" placeholder="xpub" required><button class="bllbtn" type="submit">Import</button>
+      </form>
+    </div>
 
 </body>
 

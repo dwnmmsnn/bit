@@ -9,43 +9,46 @@
 </head>
 
 <body>
-
-    <div id=product class=product>
-        <div id=home class=home> 
-        <a href="/bill1"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+  
+  <div id="product" class="product">
+    <div id="home" class="home">
+      <a href="/bill1"><button class="prebtn"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button></a>
           
-        <a href="/product0"><button id=rightproduct0btn class=rightbtn>+</button></a>
+      <a href="/product0"><button class="rightbtn">+</button></a>
         
-        <div class=mid>
+      <div class="mid">
         <h>Product</h>
-        </div>
-        </div>
+      </div>
+    </div>
         
-        <div id=filterdiv class=filterdiv>
-        <button id=filterbtn class=filterbtn><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
-        <input type=text id=filter class=filter>
-        </div>
+    <div id="filterdiv" class="filterdiv">
+      <button id="filterbtn" class="filterbtn"><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
+      <input id="filter" class="filter" type="text">
+    </div>
           
-        <a href="/product0"><button id=product0btn class=inptbtn>+ new Item</button></a>
-         
-        <ul id=itemlist class=itemlist>
-           <% for (var result of result) { %>
+    <a href="/product0"><button class="inptbtn">+ new Item</button></a>
+
+    <div class="itemlist">
+      <% for (var result of result) { %>
+        <form method="post" action="/productli">
+          <button class="hidbtn" type="submit">
+            <div class="div">
               <li>
-                <form method="post" action="/productli">
-                <div class="div">
-                <input type="hidden" name="product" value="<%- (result.product + ' ' + result.price) %>">
-                <input class="bllinpt" type="text" name="item" value="<%- result.product %>">
+                <input class="l" type="text" name="item" value="<%- result.product %>"></br></br>
+                <input class="blld" type="text" value="<%- result.description %>">
+                <input class="qty" type="text" name="qty" value="1" min="1">
                 <input class="right" type="text" name="price" value="<%- result.price %>">
-                <input class="bllinpt" type="text" name="qty" value="1" min="1">
-                <input type="hidden" name="productID" value="<%- result.ID %>">
-                <input type="hidden" name="billID" value="<%- billID %>">
-                <input class="bllbtn" type="submit" value="Select">
-                </div>
-                </form>
               </li>
-            <% } %>
-        </ul>
-        </div>
+            </div>
+            <input type="hidden" name="product" value="<%- (result.product + ' ' + result.price) %>">
+            <input type="hidden" name="productID" value="<%- result.ID %>">
+            <input type="hidden" name="billID" value="<%- billID %>">
+          </button>
+        </form>
+        <% } %>
+      </div>
+    
+    </div>
 
 </body>
 

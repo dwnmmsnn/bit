@@ -8,24 +8,29 @@
   <title>Node.js HTML CSS Server</title>
 </head>
 
-  <div class=grid>
-  <div id=home class=home>
-  </div>
-      
-    <a href="/home"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+<body>
   
-      <h1 id=sum class=sum><%- result.sum %></h1>
-      <h id=customer><%- result.customer %></h></br></br>
+  <div class="grid">
+    <div id="home" class="home">
+    </div>
+    
+    <a href="/home"><button class="prebtn"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button></a>
   
-      <% for (var product of product) { %>
-      <li><h id=product><%- product.product %></h><h class="right"><%- product.grossprice %></h></li></br>
+    <h1 class="sum"><%- result.sum %></h1>
+    <h><%- result.customer %></h></br></br>
+  
+    <% for (var product of product) { %>
+      <li>
+        <h class="qty"><%- product.qty %> x <%- product.grossprice %> BTC</h></br></br>
+        <h class=""><%- product.product %></h><h class="right"><%- product.price %> BTC</h>
+      </li></br>
       <% } %></br></br>
     
-    <li><h>Shipping</h><h class="right"><%- result.shipping %></h></li></br></br>
-    <li><h>Discount</h><h class="right"><%- result.discount %></h></li></br></br>
+      <li><h>Shipping</h><h class="right"><%- result.shipping %></h></li></br></br>
+      <li><h>Discount</h><h class="right"><%- result.discount %></h></li></br></br>
     
-    <h>Confirmed</h></br></br>
-    <a href="/pdf"><button id=pdfbtn class=pdfbtn>View Bll</button></a>
+      <h>Confirmed</h></br></br>
+      <a href="/pdf"><button class="pdfbtn">View Bll</button></a>
 
     </div>
    

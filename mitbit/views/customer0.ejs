@@ -19,6 +19,8 @@
         <h>New Customer</h>
         </div>
         </div>
+
+        <div class="customer">
        
         <input type="hidden" name="ID" value="<%- ID %>">
 
@@ -27,77 +29,79 @@
         <div class=block>
         <h>First name</h></br>
         <% if(locals.fname) { %>
-        <input id=fname name="fname" class=newinpt type="text" value="<%- fname %>">
+        <input id=fname name="fname" class="inpt" type="text" value="<%- fname %>">
         <% } else { %>
-        <input id=fname name="fname" class=newinpt type="text" value="">
+        <input id=fname name="fname" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>Last name</h></br>
         <% if(locals.lname) { %>
-        <input id=lname name="lname" class=newinpt type="text" value="<%- lname %>">
+        <input id=lname name="lname" class="inpt" type="text" value="<%- lname %>">
         <% } else { %>
-        <input id=lname name="lname" class=newinpt type="text" value="">
+        <input id=lname name="lname" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>Email</h></br>
         <% if(locals.email) { %>
-        <input id=email name="email" class=newinpt type="text" value="<%- email %>">
+        <input id=email name="email" class="inpt" type="text" value="<%- email %>">
         <% } else { %>
-        <input id=email name="email" class=newinpt type="text" value="">
+        <input id=email name="email" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>Phone number</h></br>
         <% if(locals.phonenumber) { %>
-        <input id=phonenumber name="phonenumber" class=newinpt type="text" value="<%- phonenumber %>">
+        <input id=phonenumber name="phonenumber" class="inpt" type="text" value="<%- phonenumber %>">
         <% } else { %>
-        <input id=phonenumber name="phonenumber" class=newinpt type="text" value="">
+        <input id=phonenumber name="phonenumber" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>Address</h></br>
         <% if(locals.address) { %>
-        <input id=address name="address" class=newinpt type="text" value="<%- address %>">
+        <input id=address name="address" class="inpt" type="text" value="<%- address %>">
         <% } else { %>
-        <input id=address name="address" class=newinpt type="text" value="">
+        <input id=address name="address" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>Post code</h></br>
         <% if(locals.postcode) { %>
-        <input id=postcode name="postcode" class=newinpt type="text" value="<%- postcode %>">
+        <input id=postcode name="postcode" class="inpt" type="text" value="<%- postcode %>">
         <% } else { %>
-        <input id=postcode name="postcode" class=newinpt type="text" value="">
+        <input id=postcode name="postcode" class="inpt" type="text" value="">
         <% } %>
         </div>
           
         <div class=block>
         <h>City</h></br>
         <% if(locals.city) { %>
-        <input id=city name="city" class=newinpt type="text" value="<%- city %>">
+        <input id=city name="city" class="inpt" type="text" value="<%- city %>">
         <% } else { %>
-        <input id=city name="city" class=newinpt type="text" value="">
+        <input id=city name="city" class="inpt" type="text" value="">
         <% } %>
         </div>
         
         <div class=block>
         <h>Country</h></br>
         <% if(locals.country) { %>
-        <input id=country name="country" class=newinpt value="<%- country %>">
+        <input id=country name="country" class="inpt" value="<%- country %>">
         <% } else { %>
-        <input id=country name="country" class=newinpt value="">
+        <input id=country name="country" class="inpt" value="">
         <% } %>
         </div>
           
         <button id=newcustomerbtn class=newbtn type=submit>+</button>
     </form>
+
+    </div>
   </div>
 
 </body>

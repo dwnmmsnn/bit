@@ -10,33 +10,25 @@
 
 <body>
 
-<div class=grid>
-<div class=item1>
-<div id=home class=home>
-</div>
-</div>
+<div class="grid">
+<div class="item1">
 
-<div id=home class=home> 
-  <a href="/bill"><button id=prebtn class=prebtn><img src=https://www.systemuicons.com/images/icons/chevron_left.svg></button></a>
+<div id="home" class="home"> 
+  <a href="/bill"><button id="prebtn" class="prebtn"><img src="https://www.systemuicons.com/images/icons/chevron_left.svg"></button></a>
 </div>
   
-<div class=item2>
-<div id=subgrid class=subgrid>
-<button id=download class=profilebtn><img src=https://www.systemuicons.com/images/icons/download.svg></button>
-<button id=send class=btn><img src=https://www.systemuicons.com/images/icons/pull_up.svg></button>
-</div>
+<div class="item2">
+  <div class="subgrid">
+    <button id="download" class="profilebtn"><img src="https://www.systemuicons.com/images/icons/download.svg"></button>
+    <button id="send" class="btn"><img src="https://www.systemuicons.com/images/icons/pull_up.svg"></button>
+  </div>
 
-<div id="pdf" class="pdf">
-  <% if(locals.PDF) { %>
-  <%- PDF %>
-  <% } else { %>
-  <% ' ' %>
-  <% } %>
-</div>
+  <div id="pdf" class="pdf">
+    <%- PDF %>
+  </div>
 </div>
 
 </div>
-
 </div>
 
 </body>

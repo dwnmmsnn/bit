@@ -7,19 +7,19 @@ module.exports = (function() {
 
     // Get bill
     route.get('/bill', txController);
-    
+
     // GET CSS bill
     route.get('/bill.css', (req: any, res: { sendFile: (arg0: string) => void; }) => {
       res.sendFile('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/stylesheet/bill.css');
     });
-    
+   
     // GET CSS billing
     route.get('/billing.css', (req: any, res: { sendFile: (arg0: string) => void; }) => {
       res.sendFile('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/stylesheet/billing.css');
     });
   
     // GET bill
-  route.get('/bill/:id/:billID', async (req: { params: { billID: any; id: any; }; session: { billID: number; }; }, res: { render: (arg0: string, arg1: { billID: number; userID: any; }) => void; }) => {
+    route.get('/bill/:id/:billID', async (req: { params: { billID: any; id: any; }; session: { billID: number; }; }, res: { render: (arg0: string, arg1: { billID: number; userID: any; }) => void; }) => {
       const userID = req.params.id;
       let ID = await bill.getID(userID);
       let billID = ID++;
@@ -38,7 +38,7 @@ module.exports = (function() {
   
         res.render('billlist.ejs', { result: result });
         console.log(result);
-  });
+    });
 
     // POST bill
     route.post('/bill', (req: { session: { billID: any; userID: any; }; body: { refund: any; sum: any; address: any; }; }, res: { redirect: (arg0: string) => void; }) => {
@@ -61,9 +61,9 @@ module.exports = (function() {
        db.query(query, (err: any, result: any) => {
          if (err) throw err;
 
-      res.redirect('home');
-    })
-  });
+         res.redirect('home');
+      })
+    });
 
     // GET bill0
     route.get('/bill0', async (req: { session: { billID: any; userID: any; customer: any; }; }, res: { render: (arg0: string, arg1: { customer: any; userID: any; billID: any; }) => void; }) => {
@@ -95,8 +95,8 @@ module.exports = (function() {
        if (err) throw err;
  
        res.redirect('home');
-     })
-   });
+      })
+    });
 
 return route;
 })();

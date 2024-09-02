@@ -10,30 +10,31 @@
 </head>
 
 <body>
+  <div id="home" class="home">
+    <a href="/bill"><button class="btn">+</button></a>
+    <a href="/user"><button id="billbtn" class="profilebtn"><img src="https://www.systemuicons.com/images/icons/menu_vertical.svg"></button></a>
+  </div>
 
-<div id=home class=home>
-<a href="/bill"><button class=btn>+</button></a>
-<a href="/user"><button id=billbtn class=profilebtn><img src="https://www.systemuicons.com/images/icons/menu_vertical.svg"></button></a>
-</div>
+  <h1>Hi <%- ID %></h1>
 
-<h1>Hi <%- ID %></h1>
-
-<div id=filterdiv class=filterdiv>
-<button id=filterbtn class=filterbtn><img src=https://www.systemuicons.com/images/icons/search.svg></button>
-<input type=text id=filter class=filter>
-</div>
+  <div id="filterdiv" class="filterdiv">
+    <button id="filterbtn" class="filterbtn"><img src="https://www.systemuicons.com/images/icons/search.svg"></button>
+    <input type="text" id="filter" class="filter">
+  </div>
   
-<button id=confirmed class=confirmed>Confirmed</button>
+<button id="confirmed" class="deselect">Confirmed</button>
 
-<ul id=itemlist class=itemlist>
+<ul id="itemlist" class="itemlist">
   <% for (var result of result) { %>
     <form action="/tx" method="post">
     <button type="submit" class="itemlistbtn">
       <div class="div">
-      <li><h class="bllinpt"><%- result.customer %></h><h class="right"><%- result.sum %></h></li>
-      </div>
+      <li>
+        <h class="bllinpt"><%- result.customer %></h><h class="right"><%- result.sum %></h>
+      </li>
+     </div>
       <input type="hidden" name="customer" value="<%- result.customer %>">
-      <input id="bill" class="right" type="hidden" name="sum" value="<%- result.sum %>">
+      <input type="hidden" name="sum" value="<%- result.sum %>">
       <input type="hidden" name="userID" value="<%- result.userID %>">
       <input type="hidden" name="billID" value="<%- result.ID %>">
     </button>
@@ -65,20 +66,34 @@ if (itemText.includes(filteritem)) {
 });
 
 // filter confirmed bll li
-document.getElementById("confirmed").addEventListener("click", function (event) {
+const btn = document.getElementById("confirmed");
+
+btn.addEventListener("click", function (event) {
 
 const filteritem = event.target.value.toLowerCase();
 const itemlist = document.querySelectorAll("#itemlist li");
+
+var click = 0;
   
 itemlist.forEach(function(item)  {
+
+click++;
   
 const itemText = item.textContent.toLowerCase();
 const confirmed = document.getElementById("confirmed");
   
-if (itemText.includes(confirmed.innerHTML)) {
-    item.style.display = "list-item";
-} else {
+if (btn.className = "deselect" && itemText.includes(confirmed.innerHTML)) {
+    item.style.display = "block";
+    btn.classList.remove("deselect");
+    btn.classList.add("select");
+} else if (btn.className = "deselect" && itemText.indexOf(confirmed.innerHTML)) {
     item.style.display = "none";
+    btn.classList.remove("deselect");
+    btn.classList.add("select");
+} else if (btn.className = "select") {
+    item.style.display = "block";
+    btn.classList.remove("select");
+    btn.classList.add("deselect");
 }
   })
 });

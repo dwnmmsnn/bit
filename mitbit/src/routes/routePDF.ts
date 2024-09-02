@@ -224,8 +224,7 @@ module.exports = (function() {
 
              doc.pipe(fs.createWriteStream(file));
              doc.pipe(res);
-            
-            // Finalize PDF file
+
             doc.end();
             })
 

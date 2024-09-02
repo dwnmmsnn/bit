@@ -1,207 +1,227 @@
-    h1 {
-    font-family: system-ui;
-    font-weight: 20px;
-    font-size: 20px;
-    color: #808080;
-    margin-top: 100px;
-    margin-left: 49px;
-    }
+h1 {
+ font-family: system-ui;
+ font-weight: 20px;
+ font-size: 20px;
+ color: #808080;
+ margin-top: 100px;
+ margin-left: 49px;
+}
 
-    a {
-    font-family: system-ui;
-    color: #9C9C9C;
-    text-decoration: none;
-    margin-left: 22px;
-    }      
-   
-    .home {
-    position: fixed;
-    width: 100%;
-    height: 10%;
-    top: 0;
-    left: 0;
-    right: 0;
-    }
-   
-    .confirmed {
-    position: fixed;
-    width: auto;
-    height: 20px;
-    border: none;
-    color: #CCCCCC;
-    background: none;
-    margin-left: 40px;
-    }
-   
-    .confirmed:focus {
-    width: auto;
-    height: 20px;
-    border: none;
-    color: #808080;
-    background: none;
-    }
+a {
+ font-family: system-ui;
+ color: #9C9C9C;
+ text-decoration: none;
+ margin-left: 22px;
+ }  
+ 
+.btn {
+ position: fixed;
+ width: auto;
+ height: auto;
+ border: none;
+ color: #CCCCCC;
+ background: none;
+ top: 22px;
+ right: 49px;
+ }
 
-    .div {
-        display: flex;
-        width: 179px;
-        height: auto;
-        border: none;
-        }
-   
-    li {
-    list-style-type: none;
-    width: 100%;
-    height: auto;
-    font-family: system-ui;
-    font-weight: 29px;
-    font-size: 11px;
-    color: #808080;
-    cursor: pointer;
-    margin-bottom: 20px;
-    }
+.bllbtn {
+ text-align: center;
+ width: auto;
+ height: auto;
+ border: none;
+ color: #9C9C9C;
+ background: none;
+ margin: 20px;
+ }
 
-
-    .itemlist {
-        position: fixed;
-        top: 29%;
-        bottom: 10%;
-        left: 0;
-        right: 0;
-        overflow: scroll;
-        }
+.bllinpt {
+ float: left;
+ width: auto;
+ height: auto;
+ border: none;
+ }
    
-    .filter {
-    display: flex;
-    width: 179px;
-    height: 20px;
-    border: 1px;
-    color: #FFFFFF;
-    background: #CCCCCC;
-    border-radius: 10px;
-    margin-left: 40px;
-    margin-bottom: 10px;
-    }
+.home {
+ position: fixed;
+ width: 100%;
+ height: 10%;
+ top: 0;
+ left: 0;
+ right: 0;
+ }
+
+.confirmed {
+ position: fixed;
+ width: auto;
+ height: auto;
+ border: none;
+ font-size: 12px;
+ font-family: system-ui;
+ color: #CCCCCC;
+ background: none;
+ margin-left: 49px;
+ }
+
+.deselect {
+ position: fixed;
+ width: auto;
+ height: auto;
+ font-size: 12px;
+ font-family: system-ui;
+ border: none;
+ color: #CCCCCC;
+ background: none;
+ margin-left: 49px;  
+}
+
+.select {
+ position: fixed;
+ width: auto;
+ height: auto;
+ font-size: 12px;
+ font-family: system-ui;
+ font-weight: bold;
+ border: none;
+ color: #9C9C9C;
+ background: none;  
+ margin-left: 49px;
+}
+
+.div {
+ display: flex;
+ width: 179px;
+ height: auto;
+ border: none;
+ }
+   
+.filter {
+ display: flex;
+ width: 179px;
+ height: 20px;
+ border: 1px;
+ color: #FFFFFF;
+ background: #CCCCCC;
+ border-radius: 10px;
+ margin-left: 40px;
+ margin-bottom: 10px;
+ }
+
+.filterbtn {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ border: none;
+ color: #FFFFFF;
+ background: none;
+ margin: -1px;
+ margin-left: 179px;
+ }
       
-    .filtermonth {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 170px;
-    height: 20px;
-    overflow: hidden;
-    margin-left: 40px;
-    }
-              
-    .month {
-    flex: 0 0 auto;
-    width: auto;
-    height: 20px;
-    border: none;
-    font-family: system-ui;
-    font-weight: 20px;
-    font-size: 12px;
-    color: #CCCCCC;
-    background: none;
-    }
-              
-    .month:focus {
-    flex: 0 0 auto;
-    width: auto;
-    height: 20px;
-    border: none;
-    font-family: system-ui;
-    font-weight: 20px;
-    font-size: 12px;
-    color: #808080;
-    background: none;
-    margin-left: 10px;
-    }
-         
-    .filterbtn {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    border: none;
-    color: #FFFFFF;
-    background: none;
-    margin: -1px;
-    margin-left: 179px;
-    }
+.filtermonth {
+ display: flex;
+ flex-wrap: nowrap;
+ width: 170px;
+ height: 20px;
+ overflow: hidden;
+ margin-left: 40px;
+ }
 
-    .right {
-    float: right;
-    width: auto;
-    height: auto;
-    border: none;
-    }
+.month {
+ flex: 0 0 auto;
+ width: auto;
+ height: 20px;
+ border: none;
+ font-family: system-ui;
+ font-weight: 20px;
+ font-size: 12px;
+ color: #CCCCCC;
+ background: none;
+ }
    
-    .btn {
-    position: fixed;
-    width: auto;
-    height: auto;
-    border: none;
-    color: #CCCCCC;
-    background: none;
-    top: 22px;
-    right: 49px;
-    }
+.month:focus {
+ flex: 0 0 auto;
+ width: auto;
+ height: 20px;
+ border: none;
+ font-family: system-ui;
+ font-weight: bold;
+ font-size: 12px;
+ color: #9C9C9C;
+ background: none;
+ margin-left: 10px;
+ }
 
-    .bllbtn {
-    text-align: center;
-    width: auto;
-    height: auto;
-    border: none;
-    color: #9C9C9C;
-    background: none;
-    margin: 20px;
-    }
+.itemlist {
+ position: fixed;
+ width: 179px;
+ height: auto;
+ top: 29%;
+ bottom: 10%;
+ margin-top: 40px;
+ margin-left: 2px;
+ overflow: scroll;
+ }
 
-    .bllinpt {
-    float: left;
-    width: auto;
-    height: auto;
-    border: none;
-    }
+.itemlistbtn {
+ width: auto;
+ height: auto;
+ border: none;
+ background: none;
+ }
 
-    .itemlistbtn {
-    width: auto;
-    height: auto;
-    border: none;
-    background: none;
-    }
+li {
+ list-style-type: none;
+ width: 100%;
+ height: auto;
+ font-family: system-ui;
+ font-weight: 29px;
+ font-size: 11px;
+ color: #808080;
+ cursor: pointer;
+ margin-bottom: 20px;
+ }
 
-    .prebtn {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    border: none;
-    color: #9C9C9C;
-    background: #FFFFFF;
-    top: 20px;
-    left: 10px;
-    }
+.right {
+ float: right;
+ width: 20px;
+ height: auto;
+ border: none;
+ }
 
-    .pdfbtn {
-    width: auto;
-    height: auto;
-    border: none;
-    color: #CCCCCC;
-    background: none;
-    }
+p {
+ font-family: system-ui;
+ font-weight: 2px;
+ font-size: 11px;
+ color: #808080;
+ }
+
+.pdfbtn {
+ width: auto;
+ height: auto;
+ border: none;
+ color: #CCCCCC;
+ background: none;
+ }
+
+.prebtn {
+ position: fixed;
+ width: 10px;
+ height: 10px;
+ border: none;
+ color: #9C9C9C;
+ background: #FFFFFF;
+ top: 20px;
+ left: 10px;
+ }
    
-    .profilebtn {
-    position: fixed;
-    width: auto;
-    height: auto;
-    border: none;
-    color: #CCCCCC;
-    background: none;
-    top: 20px;
-    right: 20px;
-    }
-
-    p {
-    font-family: system-ui;
-    font-weight: 2px;
-    font-size: 11px;
-    color: #808080;
-    }
+.profilebtn {
+ position: fixed;
+ width: auto;
+ height: auto;
+ border: none;
+ color: #CCCCCC;
+ background: none;
+ top: 20px;
+ right: 20px;
+ }

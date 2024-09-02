@@ -1,10 +1,7 @@
-const xpub = require('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/sql/xpub/xpub');
 const { HDPublicKey, PublicKey, Address, Networks } = require('bitcore-lib');
 
-  const Xpub = async (ID: any) => {
-  const xpubkey = await xpub.pubkey(ID);
-  const hdPublicKey = HDPublicKey(xpubkey);
-  console.log(xpubkey);
+  const pub = async (pub: any) => {
+  const hdPublicKey = HDPublicKey(pub);
   console.log(hdPublicKey);
   
   for (let i = 0; i < 1; i++) {
@@ -17,4 +14,4 @@ const { HDPublicKey, PublicKey, Address, Networks } = require('bitcore-lib');
  }
 }
 
-module.exports = { Xpub };
+module.exports = { pub };

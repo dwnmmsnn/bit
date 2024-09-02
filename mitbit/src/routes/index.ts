@@ -6,8 +6,10 @@ module.exports = (function() {
   const signJWT = require('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/scripts/JWT');
   const route = require('express').Router();
 
+  // GET home
   route.get('/home', txController);
 
+  // GET home
   route.get('/home/:id', async (req: { params: { id: any; }; session: { jwt: any; billID: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { msg: string; }): any; new(): any; }; }; render: (arg0: string, arg1: { ID: any; result: any; }) => void; }) => {
        const ID = req.params.id;
        const token = await req.session.jwt;

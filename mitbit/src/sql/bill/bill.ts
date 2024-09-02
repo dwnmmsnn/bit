@@ -11,7 +11,7 @@ const getID = (ID: any) => {
   })
  };
 
-const getBillID = (ID: any) => {
+const getTX = (ID: any) => {
      return new Promise((resolve, reject) => {
          db.query('SELECT * FROM Bill WHERE ID = ? AND userID = 1', [ID], (err: any, result: any) => {
              if(err){
@@ -35,7 +35,7 @@ const getBill = (ID: any) => {
 
    const getBills = (ID: any) => {
      return new Promise((resolve, reject) => {
-       db.query('SELECT DISTINCT bill.ID, bill.userID, bill.customer, bill.sum, bill.btc FROM Bill WHERE userID = ? AND ID != 0', [ID], (err: any, result: any) => {
+       db.query('SELECT DISTINCT bill.ID, bill.userID, bill.customer, bill.sum, bill.btc FROM Bill WHERE userID = ? AND ID != 0 ORDER BY id DESC LIMIT 10', [ID], (err: any, result: any) => {
        if(err){
            return reject(err);
        }
@@ -44,4 +44,4 @@ const getBill = (ID: any) => {
   })
  };
 
-module.exports = { getID, getBillID, getBill, getBills };
+module.exports = { getID, getTX, getBill, getBills };
