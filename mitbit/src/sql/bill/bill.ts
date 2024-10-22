@@ -1,4 +1,4 @@
-const db = require('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/routes/db');
+ const db = require('/Users/dwynmsnn/bit/mitbit/mitbit/mitbit/src/routes/db');
 
 const getID = (ID: any) => {
     return new Promise((resolve, reject) => {
